@@ -42,9 +42,15 @@ function logout() {
     FB.logout(function(response) {
         // logged out
     })
+    replaceLogoutElem();
 }
 
 function replaceLoginElem() {
     $('li[name="login"]')
         .replaceWith('<li name="logout"><a href="#">Log Out</a></li>');
+}
+
+function replaceLogoutElem() {
+    $('li[name="logout"]')
+        .replaceWith('<li name="login"><a href="#">Log In</a></li>');
 }

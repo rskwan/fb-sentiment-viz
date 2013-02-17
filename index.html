@@ -12,6 +12,7 @@
     </style>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+    <script src="jquery.lymbix.js"></script>
   </head>
   <body>
 
@@ -36,7 +37,7 @@
 
     <div id="fb-root"></div>
     <script type="text/javascript" src="fbstatuses.js"></script>
-    <script type="text/javascript" src="fblogin.js"></script>
+    <script type="text/javascript" src="fbauth.js"></script>
     <script type="text/javascript" src="init.js"></script>
 
     <div class="container">
@@ -46,9 +47,9 @@
 	  <table id="statusTable" class="table table-bordered">
 	    <thead>
 	      <tr>
-		<th>ID</th>
 		<th>Time</th>
 		<th>Message</th>
+		<th>Sentiment</th>
 	      </tr>
 	    </thead>
 	    <tbody>
