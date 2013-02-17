@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Facebook Status Sentiment Analysis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Facebook Sentiment Visualization</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li name="login"><a href="#">Log In</a></li>
+              <li name="statuses"><a href="#">Get Statuses</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div id="fb-root"></div>
+    <script type="text/javascript" src="fbstatuses.js"></script>
+    <script type="text/javascript" src="fblogin.js"></script>
+    <script type="text/javascript" src="init.js"></script>
+
+    <div class="container">
+
+      <div class="row">
+	<div class="span12">
+	  <table id="statusTable" class="table table-bordered">
+	    <thead>
+	      <tr>
+		<th>ID</th>
+		<th>Time</th>
+		<th>Message</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    </tbody>
+	  </table>
+	</div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
