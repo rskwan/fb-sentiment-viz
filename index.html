@@ -25,11 +25,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Facebook Sentiment Visualization</a>
+          <a class="brand" href="#">Facebook Status Visualization</a>
           <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li name="login"><a href="#">Log In</a></li>
-              <li name="statuses"><a href="#">Get Statuses</a></li>
+            <ul class="nav pull-right">
+              <li id="login"><a href="#">Log In</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -39,25 +38,31 @@
     <div id="fb-root"></div>
     <script type="text/javascript" src="fbstatuses.js"></script>
     <script type="text/javascript" src="fbauth.js"></script>
+    <script type="text/javascript" src="analysis.js"></script>
+    <script type="text/javascript" src="visuals.js"></script>
     <script type="text/javascript" src="init.js"></script>
 
     <div class="container">
 
       <div class="row">
-	<div class="span12">
-	  <table id="statusTable" class="table table-bordered">
-	    <thead>
-	      <tr>
-		<th>Time</th>
-		<th>Message</th>
-		<th>Sentiment</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	    </tbody>
-	  </table>
+	<div id="s12" class="span12">
+	  <div id="hero" class="hero-unit">
+	    <h1 id="intro">Facebook Status Visualization</h1>
+	    <p id="pitch">Visualize your status updates and sentiment around the (24-hour) clock!</p>
+	    <div class="row">
+	      <div class="span5">
+		<button id="statbtn" class="btn btn-large btn-block">
+		  Retrieve your statuses!
+		</button>
+	      </div>
+	      <div class="span5">
+		<button id="drawbtn" class="btn btn-large btn-primary btn-block disabled">
+		  Draw your chart!
+		</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
-
       </div>
 
     </div>

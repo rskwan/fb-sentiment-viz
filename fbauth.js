@@ -21,10 +21,20 @@ window.fbAsyncInit = function() {
     ref.parentNode.insertBefore(js, ref);
 }(document));
 
+function checkLogin() {
+    FB.getLoginStatus(function(response) {
+        if (response.status != 'connected') {
+            alert("Please log in.");
+	    login();
+        }
+    });
+}
+
 function login() {
     FB.getLoginStatus(function(response) {
         if (response.status == 'connected') {
             alert("You're already logged in!");
+            replaceLoginElem();
         } else {
             FB.login(function(response) {
                 if (response.authResponse) {
@@ -46,11 +56,11 @@ function logout() {
 }
 
 function replaceLoginElem() {
-    $('li[name="login"]')
-        .replaceWith('<li name="logout"><a href="#">Log Out</a></li>');
+    $('#login')
+        .replaceWith('<li id="logout"><a href="#">Log Out</a></li>');
 }
 
 function replaceLogoutElem() {
-    $('li[name="logout"]')
-        .replaceWith('<li name="login"><a href="#">Log In</a></li>');
+    $('#logout')
+        .replaceWith('<li id="login"><a href="#">Log In</a></li>');
 }

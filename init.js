@@ -1,11 +1,15 @@
 $(document).ready(function() {
-    $('li[name="login"]').click(function(event) {
+    $('#login').click(function(event) {
 	login();
     });
-    $('li[name="logout"]').click(function(event) {
+    $('#logout').click(function(event) {
 	logout();
     });
-    $('li[name="statuses"]').click(function(event) {
-	getStatuses();
+    $('#statbtn').click(function(event) {
+	checkLogin();
+	initStatuses(20);
+    });
+    $('#drawbtn').click(function(event) {
+	draw();
     });
 });

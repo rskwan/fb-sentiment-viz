@@ -1,16 +1,22 @@
 var master;
+var total;
 
-function getStatuses() {
+function initStatuses(maxstats) {
+    $("#pitch").replaceWith(
+	'<div class="progress progress-striped active"><div id="progbar" class="bar" style="width: 0%;"></div></div>');
+    $("#statbtn").addClass("disabled");
+    $("#drawbtn").removeClass("disabled");
     master = [];
-    FB.api('/me/statuses', { limit: 2 }, function(response) {
+    FB.api('/me/statuses', { limit: maxstats }, function(response) {
 	var statuses = response['data'];
+	total = statuses.length;
+	$("#intro").replaceWith('<h1 id="stath">Status updates processed: 0/' + total + '</h1>');
 	var cleaned = {};
-	for (var i = 0; i < statuses.length; i++) {
-	    var status = statuses[i]
+	statuses.forEach(function(status) {
 	    var clean = { time: status['updated_time'],
-			  msg: status['message'] }
+			  msg: status['message'] };
 	    setSentiment(clean);
-	}
+	});
     });
 }
 
@@ -22,20 +28,17 @@ function setSentiment(status) {
 	var msg = status['msg'];
 	lymbix.tonalize(msg, function(data) {
 	    var score = data['article_sentiment']['score'];
-	    status['score'] = score;
-	    writeToTable(status);
+	    if (score > 5) {
+		score = 5;
+	    } else if (score < -5) {
+		score = -5;
+	    }
+	    status['score'] = (score + 5) / 10;
 	    master.push(status)
+	    var len = master.length;
+	    var percent = 100 * (len / total);
+	    $("#stath").replaceWith('<h1 id="stath">Status updates processed: ' + len + '/' + total + '</h1>');
+	    $("#progbar").css("width", percent + "%");
 	});
     });
-}
-
-function writeToTable(status) {
-    $('#statusTable').find('tbody')
-	.append($('<tr>')
-		.append($('<td>')
-			.text(status['time']))
-		.append($('<td>')
-			.text(status['msg']))
-		.append($('<td>')
-			.text(status['score'])));
 }
