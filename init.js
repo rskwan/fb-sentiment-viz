@@ -7,7 +7,7 @@ $(document).ready(function() {
     });
     $('#statbtn').click(function(event) {
 	checkLogin();
-	initStatuses(20);
+	initStatuses(100);
     });
     $('#drawbtn').click(function(event) {
 	draw();

@@ -24,7 +24,7 @@ function datesToPolar(dates) {
     var angles = dates.map(function(date) {
 	var h = date.getHours();
 	var m = date.getMinutes();
-	return (h * (Math.PI / 12)) + (m * (Math.PI / 720));
+	return (h * (Math.PI / 12)) + (m * (Math.PI / 720)) + (3 * (Math.PI / 2));
     });
 
     for (var i = 0; i < dates.length; i++) {
